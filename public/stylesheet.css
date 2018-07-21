@@ -1,0 +1,34 @@
+@import "https://fonts.googleapis.com/css?family=Indie+Flower";
+
+body {
+  font-family: 'Indie Flower', cursive;
+  background-color: #2a2a2a;
+  height: 95vh;
+  width: 95vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#app {
+  width: 250px;
+  min-height: 400px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  display: grid;
+  grid-template-areas: 'display' 'keypad';
+}
+
+#display {
+  grid-area: 'display';
+  height: 30px;
+  border-bottom: #2a2a2a solid 1px;
+  text-align: right;
+}
+
+#keypad {
+  grid-area: 'keypad';
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  grid-template-rows: repeat(5, 80px);
+}
