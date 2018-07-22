@@ -20,7 +20,7 @@ body {
   padding: 10px;
 }
 
-#display {
+#display-screen {
   font-family: 'Open Sans', sans-serif;
   grid-area: 'display';
   height: 100px;
@@ -28,12 +28,12 @@ body {
   text-align: right;
 }
 
-#display > #result {
+#display-screen > #display {
   font-size: 40px;
   height: 60px;
 }
 
-#display > #expression {
+#display-screen > #expression {
   font-size: 25px;
   height: 40px;
 }
@@ -50,8 +50,8 @@ body {
   background-color: #2a2a2a;
   color: white;
   font-size: 25px;
-  height: 59px;
-  width: 59px;
+  height: 58px;
+  width: 58px;
   border-radius: 5px;
   cursor: pointer;
   font-family: 'Indie Flower', cursive;
@@ -62,11 +62,23 @@ body {
   background-color: #1274d6;
   color: white;
   font-size: 25px;
-  height: 59px;
-  width: 59px;
+  height: 58px;
+  width: 58px;
   border-radius: 5px;
   cursor: pointer;
   font-family: 'Indie Flower', cursive;
+}
+
+.btn-red {
+  background-color: #ef4545;
+}
+
+.btn-green {
+  background-color: #007d00;
+}
+
+button:focus {
+  outline: none;
 }
 
 div[id*='row'] {
