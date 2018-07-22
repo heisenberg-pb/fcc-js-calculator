@@ -1,7 +1,7 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans";
 @import "https://fonts.googleapis.com/css?family=Indie+Flower";
 
 body {
-  font-family: 'Indie Flower', cursive;
   background-color: #2a2a2a;
   height: 95vh;
   width: 95vw;
@@ -14,21 +14,62 @@ body {
   width: 250px;
   min-height: 400px;
   background-color: #ffffff;
-  border-radius: 5px;
+  border-radius: 2px;
   display: grid;
   grid-template-areas: 'display' 'keypad';
+  padding: 10px;
 }
 
 #display {
+  font-family: 'Open Sans', sans-serif;
   grid-area: 'display';
-  height: 30px;
+  height: 100px;
   border-bottom: #2a2a2a solid 1px;
   text-align: right;
 }
 
+#display > #result {
+  font-size: 40px;
+  height: 60px;
+}
+
+#display > #expression {
+  font-size: 25px;
+  height: 40px;
+}
+
 #keypad {
+  margin-top: 20px;
   grid-area: 'keypad';
   display: grid;
-  grid-template-columns: repeat(4, 60px);
   grid-template-rows: repeat(5, 80px);
+}
+
+.digit {
+  border: none;
+  background-color: #2a2a2a;
+  color: white;
+  font-size: 25px;
+  height: 59px;
+  width: 59px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Indie Flower', cursive;
+}
+
+.symbol {
+  border: none;
+  background-color: #1274d6;
+  color: white;
+  font-size: 25px;
+  height: 59px;
+  width: 59px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Indie Flower', cursive;
+}
+
+div[id*='row'] {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
 }

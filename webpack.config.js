@@ -15,7 +15,8 @@ const configuration = {
         use: 'babel-loader'
       }
     ]
-  }
+  },
+  mode: "development"
 };
 
 module.exports = configuration;
