@@ -231,7 +231,7 @@ class App extends React.Component {
     and append zero to the expression */
     if(this.isOperator(display)) {
       display = '0';
-      expression += '0';
+      // expression += '0';
     }
     
     /* If zero button clicked after clicking equals button,
@@ -248,6 +248,9 @@ class App extends React.Component {
     only if the display value is non-zero */
     if(display != '0') {
       display += '0';
+      expression += '0';
+    } else {
+      display = '0';
       expression += '0';
     }
 
@@ -344,10 +347,14 @@ class App extends React.Component {
     if(this.isOperator(expression[expression.length - 1])) {
       expression = expression.slice(0, expression.length - 1);
     }
+
+    /* Remove any non significant zeros */
+    expression = this.removeNonSignificantZeros(expression);
     
     /* In the expression multiplication symbol is represented as
     'x'. First replace those 'x' with '*' */
     var expressionToEvaluate = expression.replace(/x/g, '*');
+    console.log(expressionToEvaluate);
 
     /* Evaluate and set the state with current values; if 
     and only if expression contains any value */
@@ -383,6 +390,35 @@ class App extends React.Component {
     }
 
     return value;
+  }
+
+  /* Removes any non significant zeros from every
+  operands of the expression */
+  removeNonSignificantZeros(expression) {
+    var exp = '';
+    var nsZero = true;
+    var operand = '';
+    for(let i = 0; i < expression.length; i++) {
+      var char = expression[i];
+      if(this.isOperator(char)) {
+        if(operand == '') {
+          operand = '0';
+        }
+        exp += (operand + char);
+        operand = '';
+        nsZero = true;
+        continue;
+      }
+      if(char != '0') {
+        nsZero = false;
+      }
+      if(!nsZero) {
+        operand += char;
+      }
+    }
+
+    operand = operand == '' ? '0' : operand;
+    return exp + operand;
   }
 
   render() {
