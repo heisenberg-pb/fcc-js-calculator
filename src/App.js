@@ -227,9 +227,11 @@ class App extends React.Component {
     var expression = this.state.expression;
     var display = this.state.display;
 
-    /* If the display have any operator set it to zero first */
+    /* If the display have any operator set it to zero first
+    and append zero to the expression */
     if(this.isOperator(display)) {
       display = '0';
+      expression += '0';
     }
     
     /* If zero button clicked after clicking equals button,
